@@ -23,10 +23,10 @@ init_filter_factory() {
   factory["BlusherFilter"] = BlusherFilter::Create;
   factory["FaceMakeupFilter"] = FaceMakeupFilter::Create;
 
-  // // Basic adjustment filters
-  // factory["ContrastFilter"] = ContrastFilter::Create;
-  // factory["ExposureFilter"] = ExposureFilter::Create;
-  // factory["SaturationFilter"] = SaturationFilter::Create;
+  // Basic adjustment filters
+  factory["ContrastFilter"] = ContrastFilter::Create;
+  factory["ExposureFilter"] = ExposureFilter::Create;
+  factory["SaturationFilter"] = SaturationFilter::Create;
   // factory["RGBFilter"] = RGBFilter::Create;
   // factory["HueFilter"] = HueFilter::Create;
   // factory["HSBFilter"] = HSBFilter::Create;
