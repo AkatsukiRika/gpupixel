@@ -39,6 +39,7 @@ set(common_source_files
     ${CMAKE_CURRENT_SOURCE_DIR}/filter/directional_non_maximum_suppression_filter.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/filter/toon_filter.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/filter/pixellation_filter.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/filter/sharpen_filter.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/filter/beauty_face_unit_filter.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/filter/single_component_gaussian_blur_filter.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/filter/non_maximum_suppression_filter.cc
@@ -178,7 +179,8 @@ set(public_filter_header_files
     ${PROJECT_SOURCE_DIR}/include/gpupixel/filter/filter_group.h
     ${PROJECT_SOURCE_DIR}/include/gpupixel/filter/ios_blur_filter.h
     ${PROJECT_SOURCE_DIR}/include/gpupixel/filter/halftone_filter.h
-    ${PROJECT_SOURCE_DIR}/include/gpupixel/filter/pixellation_filter.h)
+    ${PROJECT_SOURCE_DIR}/include/gpupixel/filter/pixellation_filter.h
+    ${PROJECT_SOURCE_DIR}/include/gpupixel/filter/sharpen_filter.h)
 
 set(internal_core_header_files
     ${CMAKE_CURRENT_SOURCE_DIR}/core/gpupixel_program.h
