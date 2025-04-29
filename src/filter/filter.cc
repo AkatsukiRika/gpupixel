@@ -27,6 +27,9 @@ init_filter_factory() {
   factory["ContrastFilter"] = ContrastFilter::Create;
   factory["ExposureFilter"] = ExposureFilter::Create;
   factory["SaturationFilter"] = SaturationFilter::Create;
+  factory["BrightnessFilter"] = [] () {
+    return BrightnessFilter::Create();
+  };
   // factory["RGBFilter"] = RGBFilter::Create;
   // factory["HueFilter"] = HueFilter::Create;
   // factory["HSBFilter"] = HSBFilter::Create;
