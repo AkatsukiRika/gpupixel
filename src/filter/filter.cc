@@ -31,6 +31,7 @@ init_filter_factory() {
     return BrightnessFilter::Create();
   };
   factory["SharpenFilter"] = SharpenFilter::Create;
+  factory["CustomFilter"] = CustomFilter::Create;
   // factory["RGBFilter"] = RGBFilter::Create;
   // factory["HueFilter"] = HueFilter::Create;
   // factory["HSBFilter"] = HSBFilter::Create;

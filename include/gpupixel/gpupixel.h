@@ -78,6 +78,7 @@
 #include "gpupixel/filter/weak_pixel_inclusion_filter.h"
 #include "gpupixel/filter/white_balance_filter.h"
 #include "gpupixel/filter/sharpen_filter.h"
+#include "gpupixel/filter/custom_filter.h"
 
 namespace gpupixel {
 

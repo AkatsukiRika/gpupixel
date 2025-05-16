@@ -23,6 +23,7 @@ public class GPUPixelFilter extends GPUPixelSource implements GPUPixelSink {
     public static final String SATURATION_FILTER = "SaturationFilter";
     public static final String BRIGHTNESS_FILTER = "BrightnessFilter";
     public static final String SHARPEN_FILTER = "SharpenFilter";
+    public static final String CUSTOM_FILTER = "CustomFilter";
     public static final String RGB_FILTER = "RGBFilter";
     public static final String HUE_FILTER = "HueFilter";
     public static final String HSB_FILTER = "HSBFilter";
