@@ -73,7 +73,8 @@ set(common_source_files
     ${CMAKE_CURRENT_SOURCE_DIR}/filter/white_balance_filter.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/filter/smooth_toon_filter.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/filter/custom_filter.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/custom_filter/fairy_tale_filter.cc)
+    ${CMAKE_CURRENT_SOURCE_DIR}/custom_filter/fairy_tale_filter.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/custom_filter/sunrise_filter.cc)
 
 # Add face detection source files based on options
 if(GPUPIXEL_ENABLE_FACE_DETECTOR)
@@ -184,7 +185,8 @@ set(public_filter_header_files
     ${PROJECT_SOURCE_DIR}/include/gpupixel/filter/pixellation_filter.h
     ${PROJECT_SOURCE_DIR}/include/gpupixel/filter/sharpen_filter.h
     ${PROJECT_SOURCE_DIR}/include/gpupixel/filter/custom_filter.h
-    ${PROJECT_SOURCE_DIR}/include/gpupixel/custom_filter/fairy_tale_filter.h)
+    ${PROJECT_SOURCE_DIR}/include/gpupixel/custom_filter/fairy_tale_filter.h
+    ${PROJECT_SOURCE_DIR}/include/gpupixel/custom_filter/sunrise_filter.h)
 
 set(internal_core_header_files
     ${CMAKE_CURRENT_SOURCE_DIR}/core/gpupixel_program.h

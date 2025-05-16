@@ -21,7 +21,14 @@ namespace gpupixel {
     fairy_tale_filter_ = FairyTaleFilter::Create();
     AddFilter(fairy_tale_filter_);
 
+    sunrise_filter_ = SunriseFilter::Create();
+    AddFilter(sunrise_filter_);
+
     fairy_tale_filter_->setIntensity(0);
+    sunrise_filter_->setIntensity(0);
+
+    fairy_tale_filter_->AddSink(sunrise_filter_);
+    SetTerminalFilter(sunrise_filter_);
 
     RegisterProperty("type", TYPE_ORIGINAL,
                      "The type of custom filter",
@@ -55,6 +62,10 @@ namespace gpupixel {
       {
         TYPE_FAIRY_TALE,
         [this](float i) { fairy_tale_filter_->setIntensity(i); }
+      },
+      {
+        TYPE_SUNRISE,
+        [this](float i) { sunrise_filter_->setIntensity(i); }
       }
     };
 
