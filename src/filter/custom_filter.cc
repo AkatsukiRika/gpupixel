@@ -24,11 +24,17 @@ namespace gpupixel {
     sunrise_filter_ = SunriseFilter::Create();
     AddFilter(sunrise_filter_);
 
+    sunset_filter_ = SunsetFilter::Create();
+    AddFilter(sunset_filter_);
+
     fairy_tale_filter_->setIntensity(0);
     sunrise_filter_->setIntensity(0);
+    sunset_filter_->setIntensity(0);
 
-    fairy_tale_filter_->AddSink(sunrise_filter_);
-    SetTerminalFilter(sunrise_filter_);
+    fairy_tale_filter_
+      ->AddSink(sunrise_filter_)
+      ->AddSink(sunset_filter_);
+    SetTerminalFilter(sunset_filter_);
 
     RegisterProperty("type", TYPE_ORIGINAL,
                      "The type of custom filter",
@@ -66,6 +72,10 @@ namespace gpupixel {
       {
         TYPE_SUNRISE,
         [this](float i) { sunrise_filter_->setIntensity(i); }
+      },
+      {
+        TYPE_SUNSET,
+        [this](float i) { sunset_filter_->setIntensity(i); }
       }
     };
 
