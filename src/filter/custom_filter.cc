@@ -33,18 +33,23 @@ namespace gpupixel {
     black_cat_filter_ = BlackCatFilter::Create();
     AddFilter(black_cat_filter_);
 
+    beauty_filter_ = BeautyFilter::Create();
+    AddFilter(beauty_filter_);
+
     fairy_tale_filter_->setIntensity(0);
     sunrise_filter_->setIntensity(0);
     sunset_filter_->setIntensity(0);
     white_cat_filter_->setIntensity(0);
     black_cat_filter_->setIntensity(0);
+    beauty_filter_->setIntensity(0);
 
     fairy_tale_filter_
       ->AddSink(sunrise_filter_)
       ->AddSink(sunset_filter_)
       ->AddSink(white_cat_filter_)
-      ->AddSink(black_cat_filter_);
-    SetTerminalFilter(black_cat_filter_);
+      ->AddSink(black_cat_filter_)
+      ->AddSink(beauty_filter_);
+    SetTerminalFilter(beauty_filter_);
 
     RegisterProperty("type", TYPE_ORIGINAL,
                      "The type of custom filter",
@@ -53,6 +58,16 @@ namespace gpupixel {
     RegisterProperty("intensity", 0,
                      "The intensity of custom filter with range between 0 and 1.",
                      [this](float& val) { setIntensity(val); });
+
+    RegisterProperty(
+      "texel_width", 0,
+      "The texture width of image.",
+      [this](int &texelWidth) { setTexelWidth(texelWidth); });
+
+    RegisterProperty(
+      "texel_height", 0,
+      "The texture height of image.",
+      [this](int &texelHeight) { setTexelHeight(texelHeight); });
 
     return true;
   }
@@ -94,6 +109,10 @@ namespace gpupixel {
       {
         TYPE_BLACK_CAT,
         [this](float i) { black_cat_filter_->setIntensity(i); }
+      },
+      {
+        TYPE_BEAUTY,
+        [this](float i) { beauty_filter_->setIntensity(i); }
       }
     };
 
@@ -104,6 +123,18 @@ namespace gpupixel {
     auto it = intensitySetters.find(type);
     if (it != intensitySetters.end()) {
       it->second(intensity);
+    }
+  }
+
+  void CustomFilter::setTexelWidth(int textureWidth) {
+    if (beauty_filter_) {
+      beauty_filter_->setTexelWidth(textureWidth);
+    }
+  }
+
+  void CustomFilter::setTexelHeight(int textureHeight) {
+    if (beauty_filter_) {
+      beauty_filter_->setTexelHeight(textureHeight);
     }
   }
 }
