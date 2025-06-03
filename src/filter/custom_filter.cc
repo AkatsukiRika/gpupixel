@@ -30,16 +30,21 @@ namespace gpupixel {
     white_cat_filter_ = WhiteCatFilter::Create();
     AddFilter(white_cat_filter_);
 
+    black_cat_filter_ = BlackCatFilter::Create();
+    AddFilter(black_cat_filter_);
+
     fairy_tale_filter_->setIntensity(0);
     sunrise_filter_->setIntensity(0);
     sunset_filter_->setIntensity(0);
     white_cat_filter_->setIntensity(0);
+    black_cat_filter_->setIntensity(0);
 
     fairy_tale_filter_
       ->AddSink(sunrise_filter_)
       ->AddSink(sunset_filter_)
-      ->AddSink(white_cat_filter_);
-    SetTerminalFilter(white_cat_filter_);
+      ->AddSink(white_cat_filter_)
+      ->AddSink(black_cat_filter_);
+    SetTerminalFilter(black_cat_filter_);
 
     RegisterProperty("type", TYPE_ORIGINAL,
                      "The type of custom filter",
@@ -85,6 +90,10 @@ namespace gpupixel {
       {
         TYPE_WHITE_CAT,
         [this](float i) { white_cat_filter_->setIntensity(i); }
+      },
+      {
+        TYPE_BLACK_CAT,
+        [this](float i) { black_cat_filter_->setIntensity(i); }
       }
     };
 
