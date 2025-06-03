@@ -7,6 +7,7 @@
 #include "gpupixel/custom_filter/white_cat_filter.h"
 #include "gpupixel/custom_filter/black_cat_filter.h"
 #include "gpupixel/custom_filter/beauty_filter.h"
+#include "gpupixel/custom_filter/skin_whiten_filter.h"
 #include "gpupixel/gpupixel_define.h"
 
 namespace gpupixel {
@@ -39,6 +40,7 @@ namespace gpupixel {
     static constexpr int TYPE_WHITE_CAT = 4;
     static constexpr int TYPE_BLACK_CAT = 5;
     static constexpr int TYPE_BEAUTY = 6;
+    static constexpr int TYPE_SKIN_WHITEN = 7;
 
     std::shared_ptr<FairyTaleFilter> fairy_tale_filter_;
     std::shared_ptr<SunriseFilter> sunrise_filter_;
@@ -46,6 +48,7 @@ namespace gpupixel {
     std::shared_ptr<WhiteCatFilter> white_cat_filter_;
     std::shared_ptr<BlackCatFilter> black_cat_filter_;
     std::shared_ptr<BeautyFilter> beauty_filter_;
+    std::shared_ptr<SkinWhitenFilter> skin_whiten_filter_;
     int type = TYPE_ORIGINAL;
     float intensity = 0;
   };

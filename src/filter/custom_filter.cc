@@ -36,20 +36,25 @@ namespace gpupixel {
     beauty_filter_ = BeautyFilter::Create();
     AddFilter(beauty_filter_);
 
+    skin_whiten_filter_ = SkinWhitenFilter::Create();
+    AddFilter(skin_whiten_filter_);
+
     fairy_tale_filter_->setIntensity(0);
     sunrise_filter_->setIntensity(0);
     sunset_filter_->setIntensity(0);
     white_cat_filter_->setIntensity(0);
     black_cat_filter_->setIntensity(0);
     beauty_filter_->setIntensity(0);
+    skin_whiten_filter_->setIntensity(0);
 
     fairy_tale_filter_
       ->AddSink(sunrise_filter_)
       ->AddSink(sunset_filter_)
       ->AddSink(white_cat_filter_)
       ->AddSink(black_cat_filter_)
-      ->AddSink(beauty_filter_);
-    SetTerminalFilter(beauty_filter_);
+      ->AddSink(beauty_filter_)
+      ->AddSink(skin_whiten_filter_);
+    SetTerminalFilter(skin_whiten_filter_);
 
     RegisterProperty("type", TYPE_ORIGINAL,
                      "The type of custom filter",
@@ -113,6 +118,10 @@ namespace gpupixel {
       {
         TYPE_BEAUTY,
         [this](float i) { beauty_filter_->setIntensity(i); }
+      },
+      {
+        TYPE_SKIN_WHITEN,
+        [this](float i) { skin_whiten_filter_->setIntensity(i); }
       }
     };
 
@@ -130,11 +139,17 @@ namespace gpupixel {
     if (beauty_filter_) {
       beauty_filter_->setTexelWidth(textureWidth);
     }
+    if (skin_whiten_filter_) {
+      skin_whiten_filter_->setTexelWidth(textureWidth);
+    }
   }
 
   void CustomFilter::setTexelHeight(int textureHeight) {
     if (beauty_filter_) {
       beauty_filter_->setTexelHeight(textureHeight);
+    }
+    if (skin_whiten_filter_) {
+      skin_whiten_filter_->setTexelHeight(textureHeight);
     }
   }
 }
