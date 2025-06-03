@@ -79,7 +79,8 @@ set(common_source_files
     ${CMAKE_CURRENT_SOURCE_DIR}/custom_filter/white_cat_filter.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/custom_filter/black_cat_filter.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/custom_filter/beauty_filter.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/custom_filter/skin_whiten_filter.cc)
+    ${CMAKE_CURRENT_SOURCE_DIR}/custom_filter/skin_whiten_filter.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/custom_filter/healthy_filter.cc)
 
 # Add face detection source files based on options
 if(GPUPIXEL_ENABLE_FACE_DETECTOR)
@@ -196,7 +197,8 @@ set(public_filter_header_files
     ${PROJECT_SOURCE_DIR}/include/gpupixel/custom_filter/white_cat_filter.h
     ${PROJECT_SOURCE_DIR}/include/gpupixel/custom_filter/black_cat_filter.h
     ${PROJECT_SOURCE_DIR}/include/gpupixel/custom_filter/beauty_filter.h
-    ${PROJECT_SOURCE_DIR}/include/gpupixel/custom_filter/skin_whiten_filter.h)
+    ${PROJECT_SOURCE_DIR}/include/gpupixel/custom_filter/skin_whiten_filter.h
+    ${PROJECT_SOURCE_DIR}/include/gpupixel/custom_filter/healthy_filter.h)
 
 set(internal_core_header_files
     ${CMAKE_CURRENT_SOURCE_DIR}/core/gpupixel_program.h
