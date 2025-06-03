@@ -4,6 +4,7 @@
 #include "gpupixel/custom_filter/fairy_tale_filter.h"
 #include "gpupixel/custom_filter/sunrise_filter.h"
 #include "gpupixel/custom_filter/sunset_filter.h"
+#include "gpupixel/custom_filter/white_cat_filter.h"
 #include "gpupixel/gpupixel_define.h"
 
 namespace gpupixel {
@@ -31,10 +32,12 @@ namespace gpupixel {
     static constexpr int TYPE_FAIRY_TALE = 1;
     static constexpr int TYPE_SUNRISE = 2;
     static constexpr int TYPE_SUNSET = 3;
+    static constexpr int TYPE_WHITE_CAT = 4;
 
     std::shared_ptr<FairyTaleFilter> fairy_tale_filter_;
     std::shared_ptr<SunriseFilter> sunrise_filter_;
     std::shared_ptr<SunsetFilter> sunset_filter_;
+    std::shared_ptr<WhiteCatFilter> white_cat_filter_;
     int type = TYPE_ORIGINAL;
     float intensity = 0;
   };
